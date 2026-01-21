@@ -1,11 +1,20 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: lightgrey;
 }
 
 .calculator {
     width: 40%;
     max-width: 470px;
-    margin: 200px auto;
+    margin: 100px auto;
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(7, 100px);
@@ -13,6 +22,8 @@ body {
 }
 
 .result {
+    overflow: hidden;
+    word-break: break-all;
     grid-column: 1/5;
     border: white;
     background-color: green;
@@ -49,4 +60,7 @@ body {
 
 .number {
     background-color: lightcyan;
+}
+button {
+    cursor: pointer;
 }

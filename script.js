@@ -9,6 +9,7 @@ const squareBtn = document.querySelector(".square");
 let current = "";
 let previous = "";
 let operator = "";
+let isCalculated = false;
 
 function calculate() {
   const a = Number(previous);
@@ -37,6 +38,7 @@ function calculate() {
   current = calc.toString();
   previous = "";
   operator = "";
+  isCalculated = true;
 }
 
 function updateDisplay() {
@@ -67,7 +69,7 @@ operatorBtns.forEach((btn) => {
     if (previous !== "") {
       calculate();
     }
-
+    
     operator = btn.innerHTML;
     previous = current;
     current = "";
@@ -79,6 +81,7 @@ equalsBtn.addEventListener("click", () => {
   if (previous === "" || current === "" || operator === "") return;
   calculate();
   updateDisplay(true);
+  console.log(isCalculated);
 });
 
 acBtn.addEventListener("click", reset);
@@ -97,4 +100,14 @@ squareBtn.addEventListener("click", () => {
     previous = (Number(previous) ** 2).toString();
   }
   updateDisplay();
+});
+
+numberBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (isCalculated) {
+      current = "";
+      isCalculated = false;
+    }
+    updateDisplay();
+  });
 });
