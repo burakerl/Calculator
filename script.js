@@ -105,7 +105,7 @@ squareBtn.addEventListener("click", () => {
 numberBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (isCalculated) {
-      current = "";
+      current = btn.innerHTML;
       isCalculated = false;
     }
     updateDisplay();
